@@ -1,0 +1,10 @@
+package br.senai.sp;
+
+public class AppJava {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
