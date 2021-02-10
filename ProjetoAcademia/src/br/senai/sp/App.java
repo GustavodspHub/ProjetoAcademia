@@ -8,7 +8,12 @@ public class App {
 		
 		Academia aluno = new Academia();
 		
-		aluno.setAltura(1.70);
-			}
+		aluno.setPeso(100);
+		aluno.setAltura(1.80);
+		aluno.setDataNascimento(03, 31, 2003);
+		System.out.println(aluno.getImc());
+		System.out.println(aluno.getClassificacao());
+	}
 
 }
+
