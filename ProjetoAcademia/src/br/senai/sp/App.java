@@ -14,18 +14,21 @@ public class App {
 		tela.criarTela();
 		
 		aluno.setNome("Gustavo dos Santos Pereira");
-		aluno.setDataNascimento(LocalDate.of(2003, 03, 31));
+		aluno.setDataNascimento(LocalDate.of(2003, 01, 30));
 		aluno.setSexo("M");
 		aluno.setPeso(69);
 		aluno.setAltura(1.70);
+		aluno.setNivelAtividade("LEVE");
 		
 		
 		System.out.println("Nome : " + aluno.getNome());
 		System.out.println("Idade : " + aluno.getIdade());
 		System.out.println("Sexo : " + aluno.getSexo());
 		System.out.println("O seu IMC é : " + aluno.getImc());
-		System.out.println("O seu ncd é : " + aluno.getNcd());
 		System.out.println("A classificação do seu IMC é : " + aluno.getClassificacao());
+		System.out.println("O seu Metabolismo Basal é : " + aluno.getMBASAL());
+		System.out.println("o seu ncd é : " + aluno.getNcd()); 
+		
 	}
 
 }

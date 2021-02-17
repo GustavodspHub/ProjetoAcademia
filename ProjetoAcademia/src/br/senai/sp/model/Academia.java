@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.logging.Level;
 
-import br.senai.NivelAtividade;
+
 
 public class Academia {
 	
@@ -86,26 +86,56 @@ public class Academia {
 			return "Obesidade grau III (Mórbida)";		
 		}	
 	}
-	public double getNcd() {
+	public double getMBASAL() {
 		
-		if (sexo == "M") {
+		if (sexo == "H") {
 			if (this.getIdade() >= 18 && this.getIdade() <= 30 ) {
-				ncd = 15.3 * this.peso + 679;
+				ncd = (15.3 * this.peso) + 679;
 			}else if (this.getIdade() >= 31 && this.getIdade() <=60) {
-				ncd = 11.6 * this.peso + 879;
+				ncd = (11.6 * this.peso) + 879;
 			}else { 
-				ncd = 13.5 * this.getPeso() + 487;
+				ncd = (13.5 * this.peso) + 487;
 			}
 			
-			if (this.nivelAtividade == NivelAtividade.LEVE) {
-				ncd *= 1.5;
-			}else if (this.nivelAtividade == NivelAtividade.MODERADO) {
-				ncd *= 1.8;
-			}else if (this.nivelAtividade == NivelAtividade.INTENSO) {
-				ncd *= 2.1;
-			}return this.ncd;
+			
+			
+		}else if (sexo == "M") {
+			if (this.getIdade() >= 18 && this.getIdade() <= 30 ) {
+				ncd = (14.7 * this.peso) + 496;
+			}else if (this.getIdade() >= 31 && this.getIdade() <=60) {
+				ncd = (8.7 * this.peso) + 829;
+			}else { 
+				ncd = (10.5 * this.peso) + 596;
+			}
 		}
 		return ncd;
 	}
-}
+	
+	public double getNcd() {
+		double nc = 0 ;
+										/* homem */ 
+		if (sexo == "H") {
+			if (this.nivelAtividade.contentEquals("LEVE") ) {
+				nc = getMBASAL() * 1.5;
+			}else if (this.nivelAtividade.contentEquals("MODERADO") ) {
+				nc =  getMBASAL() * 1.8;
+			}else if(this.nivelAtividade.contentEquals("INTENSO")) {
+				nc = getMBASAL() * 2.1;
+			}
+			
+			 							/* mulher */
+		}else if (sexo == "M");
+		if (this.nivelAtividade.contentEquals("LEVE") ) {
+			nc = getMBASAL() * 1.6;
+		}else if (this.nivelAtividade.contentEquals("MODERADO") ) {
+			nc =  getMBASAL() * 1.6;
+		}else if(this.nivelAtividade.contentEquals("INTENSO")) {
+			nc = getMBASAL() * 1.8;
+		}
+		return nc;
 		
+	}
+		
+} 
+
+	
