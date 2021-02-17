@@ -2,13 +2,16 @@ package br.senai.sp.model;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.logging.Level;
+
+import br.senai.NivelAtividade;
 
 public class Academia {
 	
-	private char sexo;
+	private String sexo;
 	private double peso;
 	private double altura;
-	private int nivelAtividade;
+	private String nivelAtividade;
 	private String nome;
 	private int idade;
 	private LocalDate dataNascimento;
@@ -16,10 +19,10 @@ public class Academia {
 	private String classificacao;
 	private double ncd;
 	
-	public void setSexo (char sexo) {
+	public void setSexo (String sexo) {
 		this.sexo = sexo;
 	}
-	public char getSexo () {
+	public String getSexo () {
 		return this.sexo;
 	}
 	public void setPeso (double peso) {
@@ -34,10 +37,10 @@ public class Academia {
 	public double getAltura () {
 		return this.altura;
 	}
-	public void setNivelAtividade (int nivelAtividade) {
+	public void setNivelAtividade (String nivelAtividade) {
 		this.nivelAtividade = nivelAtividade;
 	}
-	public int getNivelAtividade () {
+	public String getNivelAtividade () {
 		return this.nivelAtividade;
 	}
 	public void setNome (String nome) {
@@ -67,6 +70,7 @@ public class Academia {
 	public void setClassificacao (String classificacao) {
 		this.classificacao = classificacao;
 	}
+	
 	public String getClassificacao() {
 		if (this.getImc() < 18.5) {
 			return "Abaixo do Peso";
@@ -80,7 +84,28 @@ public class Academia {
 			return "Obesidade grau II (Severa)";
 		}else {
 			return "Obesidade grau III (Mórbida)";		
-		}
+		}	
+	}
+	public double getNcd() {
 		
+		if (sexo == "M") {
+			if (this.getIdade() >= 18 && this.getIdade() <= 30 ) {
+				ncd = 15.3 * this.peso + 679;
+			}else if (this.getIdade() >= 31 && this.getIdade() <=60) {
+				ncd = 11.6 * this.peso + 879;
+			}else { 
+				ncd = 13.5 * this.getPeso() + 487;
+			}
+			
+			if (this.nivelAtividade == NivelAtividade.LEVE) {
+				ncd *= 1.5;
+			}else if (this.nivelAtividade == NivelAtividade.MODERADO) {
+				ncd *= 1.8;
+			}else if (this.nivelAtividade == NivelAtividade.INTENSO) {
+				ncd *= 2.1;
+			}return this.ncd;
+		}
+		return ncd;
 	}
 }
+		

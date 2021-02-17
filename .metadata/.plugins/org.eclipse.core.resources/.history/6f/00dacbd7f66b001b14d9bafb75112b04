@@ -1,0 +1,22 @@
+package br.senai.sp;
+
+import java.time.LocalDate;
+
+import br.senai.sp.model.Academia;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		Academia aluno = new Academia();
+		
+		aluno.setPeso(100);
+		aluno.setAltura(1.80);
+		aluno.setDataNascimento(LocalDate.of(2003, 03, 31));
+		System.out.println("Idade : " + aluno.getIdade());
+		System.out.println("O seu IMC é : " + aluno.getImc());
+		System.out.println("A classificação do seu IMC é : " + aluno.getClassificacao());
+	}
+
+}
+

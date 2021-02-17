@@ -1,0 +1,28 @@
+package br.senai.sp;
+
+import java.time.LocalDate;
+
+import br.senai.sp.model.Academia;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		Academia aluno = new Academia();
+		
+		aluno.setNome("Gustavo dos Santos Pereira");
+		aluno.setDataNascimento(LocalDate.of(2003, 03, 31));
+		aluno.setSexo("M");
+		aluno.setPeso(69);
+		aluno.setAltura(1.70);
+		
+		System.out.println("Nome : " + aluno.getNome());
+		System.out.println("Idade : " + aluno.getIdade());
+		System.out.println("Sexo : " + aluno.getSexo());
+		System.out.println("O seu IMC é : " + aluno.getImc());
+		System.out.println("O seu ncd é : " + aluno.getNcd());
+		System.out.println("A classificação do seu IMC é : " + aluno.getClassificacao());
+	}
+
+}
+

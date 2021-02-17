@@ -1,0 +1,14 @@
+package br.senai;
+
+public class NivelAtividades {
+		
+		public static final String LEVE = ("1.6");
+		public static final String MODERADO = ("1.8");
+		public static final String INTENSO = ("2.1");
+		
+		public static final String LEVEm = ("1.6");
+		public static final String MODERADOm = ("1.6");
+		public static final String INTENSOm = ("1.8");
+
+	}
+}
